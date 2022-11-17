@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using UserService.Models;
 
 namespace UserService.Context
 {
@@ -12,5 +13,8 @@ namespace UserService.Context
         {
             base.OnModelCreating(modelBuilder);
         }
+
+        public DbSet<User> Users { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
     }
 }
