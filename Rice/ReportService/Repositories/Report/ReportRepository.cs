@@ -25,8 +25,6 @@ namespace ReportService.Repositories.Report
             report.Status = Models.Report.REPORT_STATUS.IN_PROGRESS;
             _context.Reports.Add(report);
             SaveChanges();
-
-            // @todo Send message to kafka topic
             return _mapper.Map<ReportReadDto>(report);
 
         }
