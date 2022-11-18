@@ -80,7 +80,8 @@ namespace UserService.Repositories.User
                 user=user.Include(relation);
             }
 
-            return _mapper.Map<UserReadDto>(user);
+            var result = user.FirstOrDefault();
+            return _mapper.Map<UserReadDto>(result);
         }
 
         private Boolean SaveChanges()

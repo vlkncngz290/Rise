@@ -8,6 +8,6 @@ namespace UserService.Models
         public string Surname { get; set; }
         public string Company { get; set; }
 
-        public ICollection<Contact> Contacts { get; set; }
+        public ICollection<Contact>? Contacts { get; set; }
     }
 }

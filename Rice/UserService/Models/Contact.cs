@@ -12,6 +12,8 @@ namespace UserService.Models
 
         }
 
+        public Guid Id { get; set; }
+
         public CONTACT_TYPES DataType { get; set; }
         public string DataValue { get; set; }
         public Guid UserId { get; set; }
