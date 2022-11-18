@@ -1,4 +1,5 @@
 ﻿using Grpc.Core;
+using Microsoft.EntityFrameworkCore;
 using UserService.Context;
 using UserService.Models;
 using UserService.Protos;
@@ -14,15 +15,17 @@ namespace UserService.SyncDataService.Grpc
             _postgresqlDbContext = postgresqlDbContext;
         }
 
-        public Task<GrpcReportModel> GenerateReport(GetReportRequest request, ServerCallContext context)
+        public override  Task<GrpcReportModel> GetReport(GetReportRequest request, ServerCallContext context)
         {
             var response=new GrpcReportModel();
             Contact c1=new Contact();
             var users = _postgresqlDbContext.Users
                 .Where(u => u.Contacts.Any(c => c.DataType == Contact.CONTACT_TYPES.LOCATION))
                 .Where(u => u.Contacts.Any(c => c.DataValue == request.Location))
+                .Include("Contacts")
                 .AsQueryable();
-            response.UserCount=users.Count();
+            var result = users.ToList();
+            response.UserCount=result.Count();
             
             int phoneNumberCount=0;
             foreach (var user in users)
