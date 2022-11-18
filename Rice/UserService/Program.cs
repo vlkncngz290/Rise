@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using UserService.Context;
 using UserService.Repositories.Contact;
 using UserService.Repositories.User;
+using UserService.SyncDataService.Grpc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,8 @@ builder.Services.AddDbContext<PostgresqlDbContext>(opt =>
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IContactRepository, ContactRepository>();
 
+
+builder.Services.AddGrpc();
 builder.Services.AddControllers()
     .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
@@ -34,6 +37,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
+app.MapGrpcService<GrpcReportsService>();
 
 app.MapControllers();
 

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "UserService.Protos";
+
+service GrpcReports{
+	rpc GetReport(GetReportRequest) returns (GrpcReportModel);
+}
+
+message GetReportRequest{
+	string location=1;
+}
+
+message GrpcReportModel{
+	string location=1;
+	int32 userCount=2;
+	int32 phoneNumberCount=3;
+
+}
