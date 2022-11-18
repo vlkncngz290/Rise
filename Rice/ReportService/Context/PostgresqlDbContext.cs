@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ReportService.Models;
 
 namespace ReportService.Context
 {
@@ -12,6 +13,8 @@ namespace ReportService.Context
         {
             base.OnModelCreating(modelBuilder);
         }
-        
+
+        public DbSet<Report> Reports { get; set; }
+        public DbSet<ReportContents> ReportContents { get; set; }
     }
 }
