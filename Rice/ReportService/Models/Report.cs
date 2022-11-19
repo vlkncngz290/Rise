@@ -13,6 +13,8 @@ namespace ReportService.Models
         }
 
         public DateTime RequestDate { get; set; }
-        public REPORT_STATUS Status { get; set; }  
+        public REPORT_STATUS Status { get; set; }
+
+        public ICollection<ReportContent>? ReportContents { get; set; }
     }
 }

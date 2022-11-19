@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ReportService.Context;
@@ -11,9 +12,11 @@ using ReportService.Context;
 namespace ReportService.Migrations
 {
     [DbContext(typeof(PostgresqlDbContext))]
-    partial class PostgresqlDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221119234817_AddForeignKeyToReportContents")]
+    partial class AddForeignKeyToReportContents
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
