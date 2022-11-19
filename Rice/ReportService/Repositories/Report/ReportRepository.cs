@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using ReportService.Context;
 using ReportService.DTOs.Report;
 using ReportService.Requests.Report;
@@ -27,6 +28,21 @@ namespace ReportService.Repositories.Report
             SaveChanges();
             return _mapper.Map<ReportReadDto>(report);
 
+        }
+
+        public ReportReadDto GetById(Guid Id)
+        {
+            var report = _context.Reports.FirstOrDefault(r => r.Id==Id);
+            return _mapper.Map<ReportReadDto>(report);
+        }
+
+        public Boolean UpdateStatus(Guid Id)
+        {
+            var report = _context.Reports.FirstOrDefault(r => r.Id == Id);
+            report.Status = Models.Report.REPORT_STATUS.COMPLETE;
+            _context.Entry(report).State = EntityState.Modified;
+            SaveChanges();
+            return true;
         }
 
         private Boolean SaveChanges()
