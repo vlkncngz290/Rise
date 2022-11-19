@@ -40,10 +40,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\ReportContents\" />
-  </ItemGroup>
-
-  <ItemGroup>
 	  <Protobuf Include="Protos\reports.proto" GrpcServices="Client" />
   </ItemGroup>
 

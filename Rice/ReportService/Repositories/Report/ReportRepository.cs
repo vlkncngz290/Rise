@@ -36,10 +36,10 @@ namespace ReportService.Repositories.Report
             return _mapper.Map<ReportReadDto>(report);
         }
 
-        public Boolean UpdateStatus(Guid Id)
+        public Boolean UpdateStatus(Guid Id, Models.Report.REPORT_STATUS status)
         {
             var report = _context.Reports.FirstOrDefault(r => r.Id == Id);
-            report.Status = Models.Report.REPORT_STATUS.COMPLETE;
+            report.Status = status;
             _context.Entry(report).State = EntityState.Modified;
             SaveChanges();
             return true;

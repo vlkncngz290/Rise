@@ -4,6 +4,8 @@ using RabbitMQ.Client;
 using ReportService.AsyncDataService;
 using ReportService.Context;
 using ReportService.Repositories.Report;
+using ReportService.Repositories.ReportContent;
+using ReportService.Repositories.ReportContents;
 using ReportService.Repositories.ReportProducer;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +20,7 @@ builder.Services.AddDbContext<PostgresqlDbContext>(opt =>
 builder.Services.AddScoped<IReportRepository, ReportRepository>();
 builder.Services.AddScoped<IReportProducerRepository, ReportProducerRepository>();
 builder.Services.AddSingleton<IHostedService, ReportRequestConsumerService>();
+builder.Services.AddScoped<IReportContentRepository, ReportContentRepository>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);

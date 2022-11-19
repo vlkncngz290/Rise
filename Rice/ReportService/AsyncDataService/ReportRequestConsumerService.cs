@@ -4,8 +4,10 @@ using System.Text.Json;
 using Grpc.Net.Client;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using ReportService.DTOs.ReportContent;
 using ReportService.Models;
 using ReportService.Repositories.Report;
+using ReportService.Repositories.ReportContents;
 using UserService.Protos;
 
 namespace ReportService.AsyncDataService
@@ -46,13 +48,27 @@ namespace ReportService.AsyncDataService
                     using (var scope=_serviceProvider.CreateScope())
                     {
                         var reportRepository = scope.ServiceProvider.GetRequiredService<IReportRepository>();
+                        var reportContentRepository =
+                            scope.ServiceProvider.GetRequiredService<IReportContentRepository>();
                         var channel = GrpcChannel.ForAddress("http://localhost:1000");
                         var client = new GrpcReports.GrpcReportsClient(channel);
                         GetReportRequest getReportRequest = new GetReportRequest();
                         getReportRequest.Location = reportProduce.Location;
                         var response = client.GetReport(getReportRequest);
-                        reportRepository.UpdateStatus(reportProduce.ReportId);
-
+                        ReportContentPostDto reportContent=new ReportContentPostDto();
+                        reportContent.ReportId = reportProduce.ReportId;
+                        reportContent.Location = reportProduce.Location;
+                        reportContent.UserCount=response.UserCount;
+                        reportContent.PhoneNumberCount=response.PhoneNumberCount;
+                        Boolean isAdded = reportContentRepository.Create(reportContent);
+                        if (isAdded)
+                        {
+                            reportRepository.UpdateStatus(reportProduce.ReportId,Report.REPORT_STATUS.COMPLETE);
+                        }
+                        else
+                        {
+                            reportRepository.UpdateStatus(reportProduce.ReportId,Report.REPORT_STATUS.FAIL);
+                        }
                     }
                 });
                 

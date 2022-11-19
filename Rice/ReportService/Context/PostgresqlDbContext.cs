@@ -15,6 +15,6 @@ namespace ReportService.Context
         }
 
         public DbSet<Report> Reports { get; set; }
-        public DbSet<ReportContents> ReportContents { get; set; }
+        public DbSet<ReportContent> ReportContents { get; set; }
     }
 }

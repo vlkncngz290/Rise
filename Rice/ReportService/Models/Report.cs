@@ -8,7 +8,8 @@ namespace ReportService.Models
         public enum REPORT_STATUS
         {
             IN_PROGRESS,
-            COMPLETE    
+            COMPLETE,
+            FAIL
         }
 
         public DateTime RequestDate { get; set; }
