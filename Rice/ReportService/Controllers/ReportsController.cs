@@ -1,10 +1,11 @@
 ﻿using System.Diagnostics;
 using System.Net;
-using Confluent.Kafka;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ReportService.DTOs.Report;
+using ReportService.Models;
 using ReportService.Repositories.Report;
+using ReportService.Repositories.ReportProducer;
 using ReportService.Requests.Report;
 
 namespace ReportService.Controllers
@@ -14,49 +15,24 @@ namespace ReportService.Controllers
     public class ReportsController : ControllerBase
     {
         private readonly IReportRepository _reportRepository;
-        private readonly string bootstrapServers = "localhost:9092";
-        private readonly string topic = "report";
+        private readonly IReportProducerRepository _reportProducerRepository;
 
-        public ReportsController(IReportRepository reportRepository)
+        public ReportsController(IReportRepository reportRepository, IReportProducerRepository reportProducerRepository)
         {
             _reportRepository=reportRepository;
+            _reportProducerRepository=reportProducerRepository;
         }
 
         [HttpPost]
         public async Task<ReportReadDto> Post([FromBody] ReportPostRequest reportPostRequest)
         {
             ReportReadDto result= _reportRepository.Create(reportPostRequest);
-            await SendOrderRequest(reportPostRequest.Location);
+            ReportProduce message = new ReportProduce(result.Id, reportPostRequest.Location);
+            _reportProducerRepository.SendMessage(message);
             return result;
         }
 
-        private async Task<bool> SendOrderRequest(string location)
-        {
-            ProducerConfig config = new ProducerConfig
-            {
-                BootstrapServers = bootstrapServers,
-                ClientId = Dns.GetHostName()
-            };
-
-            try
-            {
-                using (var producer = new ProducerBuilder<Null, string>(config).Build())
-                {
-                    var result = await producer.ProduceAsync(topic, new Message<Null, string>
-                    {
-                        Value = location
-                    });
-                    
-                    return await Task.FromResult(true);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            return await Task.FromResult(false);
-        }
+        
     }
 }
 

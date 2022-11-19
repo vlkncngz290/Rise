@@ -1,7 +1,10 @@
 using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
+using RabbitMQ.Client;
+using ReportService.AsyncDataService;
 using ReportService.Context;
 using ReportService.Repositories.Report;
+using ReportService.Repositories.ReportProducer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +16,8 @@ builder.Services.AddDbContext<PostgresqlDbContext>(opt =>
     opt.UseNpgsql(config.GetConnectionString("RiceReportDatabase")));
 
 builder.Services.AddScoped<IReportRepository, ReportRepository>();
+builder.Services.AddScoped<IReportProducerRepository, ReportProducerRepository>();
+builder.Services.AddSingleton<IHostedService, ReportRequestConsumerService>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
