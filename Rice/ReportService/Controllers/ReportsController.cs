@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Collections;
+using System.Diagnostics;
 using System.Net;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ using ReportService.Models;
 using ReportService.Repositories.Report;
 using ReportService.Repositories.ReportProducer;
 using ReportService.Requests.Report;
+using ReportService.Responses;
 
 namespace ReportService.Controllers
 {
@@ -32,7 +34,15 @@ namespace ReportService.Controllers
             return result;
         }
 
-        
+        [HttpGet]
+        public BaseResponse<ReportReadDto> GetAll([FromBody] ReportGetAllRequest reportGetAllRequest)
+        {
+            ICollection<ReportReadDto> data=_reportRepository.GetAllReports(reportGetAllRequest);
+            return new BaseResponse<ReportReadDto>(data.ToList(), reportGetAllRequest.PageNumber, reportGetAllRequest.PageSize,
+                reportGetAllRequest.TotalRecords);
+        }
+
+
     }
 }
 

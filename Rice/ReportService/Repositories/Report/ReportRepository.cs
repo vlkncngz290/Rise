@@ -30,11 +30,27 @@ namespace ReportService.Repositories.Report
 
         }
 
-        public ReportReadDto GetById(Guid Id)
+        public ICollection<ReportReadDto> GetAllReports(ReportGetAllRequest reportGetAllRequest)
         {
-            var report = _context.Reports.FirstOrDefault(r => r.Id==Id);
-            return _mapper.Map<ReportReadDto>(report);
+            var reports = _context.Reports.AsQueryable();
+            if (reportGetAllRequest.ReportStatus!=null)
+            {
+                reports=reports.Where(report => report.Status==reportGetAllRequest.ReportStatus);
+            }
+
+            foreach (string relation in reportGetAllRequest.Include)
+            {
+                reports = reports.Include(relation);
+            }
+
+            reportGetAllRequest.TotalRecords=reports.Count();
+            var result=reports.OrderBy(r=>r.Id)
+                .Skip(reportGetAllRequest.GetOffset())
+                .Take(reportGetAllRequest.GetLimit())
+                .ToList();
+            return _mapper.Map<ICollection<ReportReadDto>>(result);
         }
+
 
         public Boolean UpdateStatus(Guid Id, Models.Report.REPORT_STATUS status)
         {
