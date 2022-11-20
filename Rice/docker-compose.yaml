@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  rabbit-mq:
+    image: rabbitmq:3.11-management
+    container_name: rice-rabbitmq
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  
+  postgresql:
+    image: postgres
+    container_name: rice-postgresql
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 123456
+  
