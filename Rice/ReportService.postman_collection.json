@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "62255886-2826-4b5f-acad-50cc8c4ffdd7",
+		"name": "ReportService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23099857"
+	},
+	"item": [
+		{
+			"name": "api/Reports",
+			"item": [
+				{
+					"name": "/api/Reports",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"location\": \"sunt culpa est laborum\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Reports",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Reports"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"location\": \"sunt culpa est laborum\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Reports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Reports"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"e5c133b9-2501-e537-f384-4df3b3fee4ba\",\n  \"requestDate\": \"1943-05-08T04:24:49.902Z\",\n  \"status\": 1,\n  \"reportContents\": [\n    {\n      \"id\": \"bf129e3a-6571-7fa5-e225-2d32f096a13e\",\n      \"reportId\": \"091bb767-be68-851f-b0e9-e4522c062fc0\",\n      \"location\": \"nisi exercitation anim Excepteur\",\n      \"userCount\": -52751981,\n      \"phoneNumberCount\": -25833066\n    },\n    {\n      \"id\": \"5b731e0a-6542-73f0-133e-5292b26a394a\",\n      \"reportId\": \"887ccf9a-5624-441f-1ae5-de676b788b0b\",\n      \"location\": \"cupidatat sint id\",\n      \"userCount\": 50002585,\n      \"phoneNumberCount\": 32138050\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "/api/Reports",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"pageSize\": 117,\n  \"include\":[\"ReportContents\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/Reports",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"Reports"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Reports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Reports"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"pageNumber\": -65629903,\n  \"totalPages\": -58193414,\n  \"totalRecords\": -86035434,\n  \"pageSize\": 75955815,\n  \"hasNext\": true,\n  \"hasPrevious\": true,\n  \"data\": [\n    {\n      \"id\": \"7b48a6d6-c073-85d1-6d6a-847886368f4a\",\n      \"requestDate\": \"2007-04-21T00:52:48.126Z\",\n      \"status\": 2,\n      \"reportContents\": [\n        {\n          \"id\": \"2094b63f-95e6-0b0f-03da-d18a84439897\",\n          \"reportId\": \"cd414de8-f56b-d0dc-3b65-0644f7cf86d4\",\n          \"location\": \"eu ut enim aliqua\",\n          \"userCount\": -83017039,\n          \"phoneNumberCount\": -37404905\n        },\n        {\n          \"id\": \"urn:uuid:45e4f3fa-9d89-fd2f-9657-5a4d02f2c3d8\",\n          \"reportId\": \"cc68d85d-15e2-c946-605e-38dedcb66387\",\n          \"location\": \"mollit Excepteur laborum cupidatat\",\n          \"userCount\": 26440048,\n          \"phoneNumberCount\": -40035254\n        }\n      ]\n    },\n    {\n      \"id\": \"56a4a14a-22ca-dd38-65c4-c6ed2b233199\",\n      \"requestDate\": \"1984-03-23T18:43:10.984Z\",\n      \"status\": 1,\n      \"reportContents\": [\n        {\n          \"id\": \"6221192c-93b3-573e-6a86-3e51de973ada\",\n          \"reportId\": \"urn:uuid:60f4e210-5e6b-2d0b-390f-29cdd9a6ab8b\",\n          \"location\": \"ea minim exercitation anim\",\n          \"userCount\": -69506051,\n          \"phoneNumberCount\": 45130996\n        },\n        {\n          \"id\": \"b228f429-bb16-d095-1661-c934a05a47d6\",\n          \"reportId\": \"urn:uuid:ec5a73f8-e4f0-8c10-1604-a592a00694c0\",\n          \"location\": \"sint velit\",\n          \"userCount\": 24935897,\n          \"phoneNumberCount\": -38603328\n        }\n      ]\n    }\n  ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Get Weather Forecast",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/plain"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/WeatherForecast",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"WeatherForecast"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/WeatherForecast",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"WeatherForecast"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n  {\n    \"date\": \"1982-12-02T06:00:48.316Z\",\n    \"temperatureC\": -55055318,\n    \"temperatureF\": -70886800,\n    \"summary\": \"ea esse officia cillum\"\n  },\n  {\n    \"date\": \"2012-11-21T04:09:44.405Z\",\n    \"temperatureC\": -27872835,\n    \"temperatureF\": -30755060,\n    \"summary\": \"cu\"\n  }\n]"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5128",
+			"type": "string"
+		}
+	]
+}

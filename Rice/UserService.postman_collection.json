@@ -1,0 +1,533 @@
+{
+	"info": {
+		"_postman_id": "4ddf8fcf-8043-45af-9b63-c87a062de269",
+		"name": "UserService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23099857"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "Contacts",
+					"item": [
+						{
+							"name": "/api/Contacts",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"dataType\": 1,\n  \"dataValue\": \"42352345234532\",\n  \"userId\": \"a93538a3-9e32-477e-bd6a-f2a2f1549406\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Contacts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Contacts"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"dataType\": 2,\n  \"dataValue\": \"dolore cillum\",\n  \"userId\": \"a9cd7fba-5d26-2a6d-3745-a7ecf1ee3ef2\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Contacts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Contacts"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"b67a5fdb-2292-bcb4-ed45-96681f28510a\",\n  \"userId\": \"urn:uuid:0312c006-c331-3f70-2b56-a5fb876b64b0\",\n  \"dataType\": 0,\n  \"dataValue\": \"magna in\"\n}"
+								}
+							]
+						},
+						{
+							"name": "/api/Contacts/:id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Contacts/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Contacts",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "urn:uuid:06a4cf34-5bf6-953b-27ce-480afdeda88b",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Contacts/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Contacts",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:06a4cf34-5bf6-953b-27ce-480afdeda88b",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "/api/Users/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "urn:uuid:06a4cf34-5bf6-953b-27ce-480afdeda88b",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "urn:uuid:06a4cf34-5bf6-953b-27ce-480afdeda88b",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/api/Users/:id",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"include\":[\n      \"Contacts\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "4bf05d50-a7f8-41ce-a095-3befa235b715",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "urn:uuid:06a4cf34-5bf6-953b-27ce-480afdeda88b",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"7e83a298-b8fc-aedc-3ad6-a3f2d15bf0ca\",\n  \"name\": \"Duis culpa mag\",\n  \"surname\": \"fugiat ut\",\n  \"company\": \"ea esse proid\",\n  \"contacts\": [\n    {\n      \"id\": \"urn:uuid:67295e22-895b-38bc-fd1d-6b6f2b215fef\",\n      \"dataType\": 2,\n      \"dataValue\": \"cupidatat\",\n      \"userId\": \"urn:uuid:92de6c04-b9dd-a16d-c82e-94fa4970b89f\",\n      \"user\": {\n        \"id\": \"urn:uuid:60f5929d-5cfa-3d26-aa64-5d7db23a6a3a\",\n        \"name\": \"sunt nulla ex\",\n        \"surname\": \"et cupidatat irure\",\n        \"company\": \"veniam quis non\",\n        \"contacts\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Contact detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Contact detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": \"c3977e40-38d1-8d27-c53f-0352b6134cdc\",\n      \"dataType\": 2,\n      \"dataValue\": \"eiusm\",\n      \"userId\": \"53bb7d21-b1f7-1bdd-8a58-557fafc0c9e8\",\n      \"user\": {\n        \"id\": \"urn:uuid:72ab8ddd-3285-a59b-d22d-225829e3c7b5\",\n        \"name\": \"esse sit\",\n        \"surname\": \"Duis nisi in esse\",\n        \"company\": \"est labore quis ut\",\n        \"contacts\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Contact detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Contact detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/Users",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"company\": \"ullamco anim in dolore\",\n  \"name\": \"tempor eiusmod voluptate sunt aute\",\n  \"surname\": \"cillum veniam amet dolor\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Users"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"company\": \"ullamco anim in dolore\",\n  \"name\": \"tempor eiusmod voluptate sunt aute\",\n  \"surname\": \"cillum veniam amet dolor\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"urn:uuid:8e6b89f7-2fdc-8eb6-4da8-6092ce34713c\",\n  \"name\": \"consequat officia\",\n  \"surname\": \"adipisicing dolor laboris \",\n  \"company\": \"nostrud dolore minim\",\n  \"contacts\": [\n    {\n      \"id\": \"5d76d83d-2d96-636a-2dfe-057bde16bd36\",\n      \"dataType\": 1,\n      \"dataValue\": \"tempor dolor dolor laborum\",\n      \"userId\": \"urn:uuid:c078b7b3-0024-010e-14b7-3bd19798b028\",\n      \"user\": {\n        \"id\": \"8a438c21-b91f-f6a5-5a12-9b0838edde57\",\n        \"name\": \"laborum irure nulla elit\",\n        \"surname\": \"velit nisi in mollit dolore\",\n        \"company\": \"ut ullamco laboris magna\",\n        \"contacts\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Contact detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Contact detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": \"3bac9235-2686-a893-3818-e04bc77b3036\",\n      \"dataType\": 0,\n      \"dataValue\": \"deser\",\n      \"userId\": \"41e4b77f-bc96-c100-6dda-a8b66ba88475\",\n      \"user\": {\n        \"id\": \"urn:uuid:b595b381-2b98-46c3-5ebf-5f778587a24b\",\n        \"name\": \"\",\n        \"surname\": \"sed cillum adipisici\",\n        \"company\": \"in sunt anim pariatur\",\n        \"contacts\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Contact detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Contact detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "/api/Users",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"pageSize\": 86,\n  \"include\": [\n    \"Contacts\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Users"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"pageNumber\": 4615184,\n  \"totalPages\": -20589712,\n  \"totalRecords\": -39603971,\n  \"pageSize\": -95765801,\n  \"hasNext\": false,\n  \"hasPrevious\": false,\n  \"data\": [\n    {\n      \"id\": \"urn:uuid:b406fe53-aa85-4322-0712-10d1e2d38335\",\n      \"name\": \"Duis Lorem\",\n      \"surname\": \"dolor dolor\",\n      \"company\": \"dolor esse cillum\",\n      \"contacts\": [\n        {\n          \"id\": \"4f702c9a-ab83-3988-e480-dfda35d26e8c\",\n          \"dataType\": 0,\n          \"dataValue\": \"ullamco nisi eu\",\n          \"userId\": \"urn:uuid:b0c51eb7-2bb2-2cfc-b406-9e628a78e1c8\",\n          \"user\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"surname\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"company\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"contacts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"id\": \"urn:uuid:30e87794-52ff-1286-97bb-9c33307c5624\",\n          \"dataType\": 0,\n          \"dataValue\": \"en\",\n          \"userId\": \"urn:uuid:06c96350-846a-da6f-31d4-3ceb69aa3893\",\n          \"user\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"surname\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"company\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"contacts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"id\": \"urn:uuid:2da2fa42-4090-024a-610f-bbb777d9fe27\",\n      \"name\": \"irure\",\n      \"surname\": \"in amet anim consequat\",\n      \"company\": \"consequat voluptate \",\n      \"contacts\": [\n        {\n          \"id\": \"c265d910-09f6-dd02-d12b-6200c5be10fe\",\n          \"dataType\": 1,\n          \"dataValue\": \"dolore dolor\",\n          \"userId\": \"936b68f2-bb51-88db-dc46-1b0eeb429b1b\",\n          \"user\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"surname\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"company\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"contacts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"id\": \"51a32082-bdfb-3012-d773-bfa14062ddd2\",\n          \"dataType\": 2,\n          \"dataValue\": \"irure amet\",\n          \"userId\": \"urn:uuid:4d70e936-f6a1-42f2-3444-2e12a011419b\",\n          \"user\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"surname\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"company\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"contacts\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ]\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Get Weather Forecast",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/plain"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/WeatherForecast",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"WeatherForecast"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/WeatherForecast",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"WeatherForecast"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n  {\n    \"date\": \"1958-11-24T13:53:27.456Z\",\n    \"temperatureC\": 86695859,\n    \"temperatureF\": 32834857,\n    \"summary\": \"dolor est\"\n  },\n  {\n    \"date\": \"1967-09-26T07:42:00.764Z\",\n    \"temperatureC\": -54298675,\n    \"temperatureF\": 90402842,\n    \"summary\": \"ad velit ea labore\"\n  }\n]"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5127",
+			"type": "string"
+		}
+	]
+}
