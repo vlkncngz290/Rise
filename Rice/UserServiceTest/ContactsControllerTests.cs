@@ -21,10 +21,11 @@ namespace UserServiceTest
             var fakeUser = A.Dummy<ContactReadDto>();
             A.CallTo(() => repository.Create(request)).Returns(fakeUser);
             var controller = new ContactsController(repository);
-            // Act
+            
 
             var actionResult = controller.Post(request);
-            // Assert
+            
+
             var result = actionResult.Id;
             Assert.NotNull(result);
         }
@@ -37,11 +38,12 @@ namespace UserServiceTest
             Guid id = new Guid("1ea6e753-971d-4413-a611-60cb99278222");
             A.CallTo(() => repository.Delete(id)).Returns(returnDto);
             var controller = new ContactsController(repository);
-            // Act
+
 
             var actionResult = controller.Delete(id);
             var result = actionResult;
-            // Assert
+
+
             Assert.NotEmpty(result.ToString());
         }
     }
